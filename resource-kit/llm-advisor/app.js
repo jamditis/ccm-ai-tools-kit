@@ -49,17 +49,19 @@ async function loadAllData() {
         let mainContent, progressBar, breadcrumbContainer, themeToggleBtn, backBtn, restartBtn, toolSelector, universalModal, modalTitle, modalBody;
 
         function queryDOMElements() {
+            // Elements inside the container
             mainContent = container.querySelector('#main-content');
             progressBar = container.querySelector('#progress-bar');
             breadcrumbContainer = container.querySelector('#breadcrumb');
-            themeToggleBtn = container.querySelector('#theme-toggle-checkbox');
             backBtn = container.querySelector('#back-btn');
             restartBtn = container.querySelector('#restart-btn');
             toolSelector = container.querySelector('#tool-selector');
-            universalModal = container.querySelector('#universal-modal');
-            modalTitle = container.querySelector('#modal-title');
-            modalBody = container.querySelector('#modal-body');
-            return mainContent && progressBar && breadcrumbContainer && themeToggleBtn && backBtn && restartBtn && toolSelector && universalModal;
+            // Elements outside the container (modal and hidden controls)
+            themeToggleBtn = document.querySelector('#theme-toggle-checkbox');
+            universalModal = document.querySelector('#universal-modal');
+            modalTitle = document.querySelector('#modal-title');
+            modalBody = document.querySelector('#modal-body');
+            return mainContent && progressBar && breadcrumbContainer && backBtn && restartBtn && toolSelector && universalModal;
         }
 
         const getPillClasses = (tool) => {
